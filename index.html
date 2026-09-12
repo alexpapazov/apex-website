@@ -52,6 +52,128 @@
       Wearable mixed-reality hardware streams experimental context to the AI and delivers
       in-situ guidance back to the operator.
     </p>
+    <p class="loops-hint">APEX operates as two interacting real-time loops. Click any step to learn more.</p>
+    <div class="loops">
+
+      <!-- Protocol co-development loop -->
+      <div class="loop loop-green">
+        <h3>Real-Time Protocol Co-Development Loop</h3>
+        <p class="loop-subtitle">Improve the fabrication recipe</p>
+        <ol class="loop-steps">
+          <li class="loop-step t-blue">
+            <button class="loop-step-btn" type="button">
+              <span class="loop-icon">👤</span>
+              <span class="loop-step-text">
+                <strong>1. User defines goal</strong>
+                <span>Specify target device, materials, constraints</span>
+              </span>
+            </button>
+            <p class="loop-desc">The researcher states the fabrication objective through a chat interface — target device, materials, and constraints — optionally attaching literature, notes, or images of the experimental setup.</p>
+          </li>
+          <li class="loop-step t-purple">
+            <button class="loop-step-btn" type="button">
+              <span class="loop-icon">🧠</span>
+              <span class="loop-step-text">
+                <strong>2. APEX proposes protocol</strong>
+                <span>Generate SOPs using prior knowledge, tools, and literature</span>
+              </span>
+            </button>
+            <p class="loop-desc">The Planning agent composes standard operating procedures from its expert-curated SOP atlas, prior fabrication experience, and targeted literature search — reasoning explicitly over material compatibility and available equipment.</p>
+          </li>
+          <li class="loop-step t-yellow">
+            <button class="loop-step-btn" type="button">
+              <span class="loop-icon">📋</span>
+              <span class="loop-step-text">
+                <strong>3. Researcher reviews</strong>
+                <span>Accept, modify, or provide feedback</span>
+              </span>
+            </button>
+            <p class="loop-desc">The human stays in control: the researcher approves the proposed protocol, edits individual steps, or sends feedback through multiple conversation rounds — each one logged for traceability.</p>
+          </li>
+          <li class="loop-step t-green">
+            <button class="loop-step-btn" type="button">
+              <span class="loop-icon">🧪</span>
+              <span class="loop-step-text">
+                <strong>4. Fabrication provides new results</strong>
+                <span>Outcomes, issues, or new observations</span>
+              </span>
+            </button>
+            <p class="loop-desc">Real observations flow in from the cleanroom — measured film thicknesses, wafer defects, unexpected failures — grounding the protocol in what actually happened rather than what was planned.</p>
+          </li>
+          <li class="loop-step t-red">
+            <button class="loop-step-btn" type="button">
+              <span class="loop-icon">🔄</span>
+              <span class="loop-step-text">
+                <strong>5. APEX updates the protocol</strong>
+                <span>Refine steps, parameters, or propose alternative methods</span>
+              </span>
+            </button>
+            <p class="loop-desc">APEX revises the remaining procedure in response to results — tuning parameters, reordering steps, or proposing literature-backed alternative methods when a step proves incompatible.</p>
+          </li>
+        </ol>
+        <p class="loop-repeat">↻ Repeat and improve in real time</p>
+      </div>
+
+      <!-- Device co-fabrication loop -->
+      <div class="loop loop-blue">
+        <h3>Real-Time MEMS Device Co-Fabrication Loop</h3>
+        <p class="loop-subtitle">Execute the fabrication with real-time support</p>
+        <ol class="loop-steps">
+          <li class="loop-step t-green">
+            <button class="loop-step-btn" type="button">
+              <span class="loop-icon">🧑‍🔬</span>
+              <span class="loop-step-text">
+                <strong>1. Researcher performs fabrication</strong>
+                <span>Carry out the current SOP step in the cleanroom</span>
+              </span>
+            </button>
+            <p class="loop-desc">The human provides what robots cannot: long-horizon execution and delicate motor control — handling wafers, chemicals, and equipment through each step of the procedure.</p>
+          </li>
+          <li class="loop-step t-blue">
+            <button class="loop-step-btn" type="button">
+              <span class="loop-icon">🥽</span>
+              <span class="loop-step-text">
+                <strong>2. APEX observes through MR headset</strong>
+                <span>Capture live video, hand/eye tracking, and context</span>
+              </span>
+            </button>
+            <p class="loop-desc">Mixed-reality goggles stream 8K egocentric video at 32 ms latency, along with hand and eye-gaze tracking and a SLAM-built 3D map of the cleanroom, so APEX sees exactly what the operator is doing and where.</p>
+          </li>
+          <li class="loop-step t-purple">
+            <button class="loop-step-btn" type="button">
+              <span class="loop-icon">🔍</span>
+              <span class="loop-step-text">
+                <strong>3. Track step and check for issues</strong>
+                <span>Understand current step, inspect wafer/device, monitor safety, detect errors</span>
+              </span>
+            </button>
+            <p class="loop-desc">The multi-agent framework aligns each frame to its SOP step, inspects the wafer in real time, watches for unsafe chemical handling, and flags deviations — like a wrong parameter — the moment they occur.</p>
+          </li>
+          <li class="loop-step t-yellow">
+            <button class="loop-step-btn" type="button">
+              <span class="loop-icon">💬</span>
+              <span class="loop-step-text">
+                <strong>4. Give real-time guidance or correction</strong>
+                <span>Provide instructions, warnings, or parameter updates</span>
+              </span>
+            </button>
+            <p class="loop-desc">Feedback appears as adaptive 3D overlays in the operator's view: next-step instructions, error corrections, safety alerts, and recovery plans — delivered without interrupting the work.</p>
+          </li>
+          <li class="loop-step t-teal">
+            <button class="loop-step-btn" type="button">
+              <span class="loop-icon">✅</span>
+              <span class="loop-step-text">
+                <strong>5. Researcher continues fabrication</strong>
+                <span>Proceed to next step</span>
+              </span>
+            </button>
+            <p class="loop-desc">With the step verified and logged, the researcher moves on — and every action, reading, and correction accumulates into a structured, queryable record of the whole experiment.</p>
+          </li>
+        </ol>
+        <p class="loop-repeat">↻ Repeat for each step in real time</p>
+      </div>
+
+    </div>
   </section>
 
   <!-- ============ WORKFLOW (interactive placeholder) ============ -->

@@ -26,6 +26,13 @@ const WORKFLOW_NODES = {
   },
 };
 
+// Loop diagrams: click a step to expand its description.
+document.querySelectorAll(".loop-step-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.closest(".loop-step").classList.toggle("open");
+  });
+});
+
 const nodes = document.querySelectorAll(".wf-node");
 const titleEl = document.getElementById("wf-title");
 const textEl = document.getElementById("wf-text");

@@ -141,6 +141,89 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.015em; }
 
 .section-lead { color: var(--ink-soft); max-width: 760px; margin-bottom: 2.2rem; }
 
+/* ============ Loops ============ */
+.loops-hint { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 1.6rem; }
+
+.loops {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.loop {
+  border-radius: var(--radius);
+  padding: 1.5rem 1.4rem 1.2rem;
+  border: 2px solid;
+}
+.loop-green { background: #f2faf4; border-color: #b7dfc2; }
+.loop-blue { background: #f1f6fd; border-color: #b9cfec; }
+
+.loop h3 { font-size: 1.08rem; margin-bottom: 0.15rem; }
+.loop-green h3 { color: #1c6b35; }
+.loop-blue h3 { color: #1d4e8f; }
+.loop-subtitle { color: var(--ink-soft); font-size: 0.85rem; margin-bottom: 1.2rem; }
+
+.loop-steps { list-style: none; }
+
+.loop-step { border-radius: 12px; border: 1px solid; }
+.loop-step + .loop-step { margin-top: 1.6rem; position: relative; }
+.loop-step + .loop-step::before {
+  content: "↓";
+  position: absolute;
+  top: -1.45rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #6b7694;
+}
+
+.t-blue   { background: #e8f1fc; border-color: #c2d8f2; }
+.t-purple { background: #f1ecfb; border-color: #d8cbf0; }
+.t-yellow { background: #fdf6e3; border-color: #eedfb2; }
+.t-green  { background: #e9f7ec; border-color: #c0e3ca; }
+.t-red    { background: #fdecec; border-color: #f2c7c7; }
+.t-teal   { background: #e6f6f4; border-color: #b8e2dd; }
+
+.loop-step-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: var(--ink);
+}
+
+.loop-icon { font-size: 1.45rem; flex-shrink: 0; }
+
+.loop-step-text strong { display: block; font-size: 0.93rem; }
+.loop-step-text > span { display: block; color: var(--ink-soft); font-size: 0.82rem; margin-top: 0.15rem; }
+
+.loop-desc {
+  display: none;
+  padding: 0 1rem 0.95rem 3.3rem;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+.loop-step.open .loop-desc { display: block; }
+.loop-step.open { box-shadow: inset 0 0 0 1px rgba(19, 26, 46, 0.18); }
+
+.loop-repeat {
+  margin-top: 1.1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.loop-green .loop-repeat { color: #1c6b35; }
+.loop-blue .loop-repeat { color: #1d4e8f; }
+
 /* ============ Workflow ============ */
 .workflow { display: grid; grid-template-columns: 1fr 300px; gap: 1.5rem; align-items: start; }
 
