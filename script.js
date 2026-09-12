@@ -78,6 +78,81 @@ figBoxes.forEach((box) => {
   });
 });
 
+// Draw continuous connector arrows between the figure's boxes.
+const GREEN = "#2f9e50";
+const BLUE = "#2f74d0";
+
+function drawWires() {
+  const outer = document.querySelector(".fig-outer");
+  const svg = document.querySelector(".fig-wires");
+  if (!outer || !svg) return;
+
+  const W = outer.clientWidth;
+  const H = outer.clientHeight;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+
+  const o = outer.getBoundingClientRect();
+  const R = (sel) => {
+    const r = document.querySelector(sel).getBoundingClientRect();
+    return {
+      l: r.left - o.left, t: r.top - o.top,
+      r: r.right - o.left, b: r.bottom - o.top,
+      cx: r.left - o.left + r.width / 2,
+      cy: r.top - o.top + r.height / 2,
+    };
+  };
+
+  const g = R('[data-step="generate"]');
+  const inner = R(".fig-inner");
+  const p = R('[data-step="perform"]');
+  const ob = R('[data-step="observe"]');
+  const ad = R('[data-step="analyze-detect"]');
+  const gd = R('[data-step="guide"]');
+  const ct = R('[data-step="continue"]');
+  const ar = R('[data-step="analyze-results"]');
+  const up = R('[data-step="update"]');
+  const railX = W - 26;
+
+  const wires = [
+    // outer loop (blue)
+    [`M ${g.cx} ${g.b} V ${inner.t}`, BLUE],
+    [`M ${ar.cx} ${inner.b} V ${ar.t}`, BLUE],
+    [`M ${ar.r} ${ar.cy} H ${up.l}`, BLUE],
+    [`M ${up.r} ${up.cy} H ${railX} V ${g.cy} H ${g.r}`, BLUE],
+    // inner cycle (green), counterclockwise
+    [`M ${p.l} ${p.cy} H ${ob.cx} V ${ob.t}`, GREEN],
+    [`M ${ob.cx} ${ob.b} V ${ad.t}`, GREEN],
+    [`M ${ad.r} ${ad.cy} H ${gd.l}`, GREEN],
+    [`M ${gd.cx} ${gd.t} V ${ct.b}`, GREEN],
+    [`M ${ct.cx} ${ct.t} V ${p.cy} H ${p.r}`, GREEN],
+  ];
+
+  const NS = "http://www.w3.org/2000/svg";
+  svg.innerHTML = `
+    <defs>
+      <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="${GREEN}"/>
+      </marker>
+      <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="${BLUE}"/>
+      </marker>
+    </defs>`;
+  wires.forEach(([d, color]) => {
+    const path = document.createElementNS(NS, "path");
+    path.setAttribute("d", d);
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", color);
+    path.setAttribute("stroke-width", "2.5");
+    path.setAttribute("stroke-linejoin", "round");
+    path.setAttribute("marker-end", color === GREEN ? "url(#arr-green)" : "url(#arr-blue)");
+    svg.appendChild(path);
+  });
+}
+
+window.addEventListener("load", drawWires);
+window.addEventListener("resize", drawWires);
+drawWires();
+
 const nodes = document.querySelectorAll(".wf-node");
 const titleEl = document.getElementById("wf-title");
 const textEl = document.getElementById("wf-text");
