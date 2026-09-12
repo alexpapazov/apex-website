@@ -134,8 +134,9 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.015em; }
 .section-alt {
   max-width: none;
   background: var(--surface-alt);
+  padding-left: max(2rem, calc((100% - 1080px) / 2 + 2rem));
+  padding-right: max(2rem, calc((100% - 1080px) / 2 + 2rem));
 }
-.section-alt > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 
 .section h2 { font-size: 1.9rem; margin-bottom: 1rem; }
 
