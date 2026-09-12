@@ -26,6 +26,58 @@ const WORKFLOW_NODES = {
   },
 };
 
+// Nested loop figure: click a box, description appears below the figure.
+const LOOP_STEPS = {
+  generate: {
+    title: "1. Generate / Update Protocol (outer loop)",
+    text: "APEX proposes or revises standard operating procedures using the researcher's goals, prior fabrication data, constraints, and feedback.",
+  },
+  perform: {
+    title: "1. Researcher performs step (inner loop)",
+    text: "The researcher carries out the current SOP step in the cleanroom while wearing the mixed-reality headset.",
+  },
+  observe: {
+    title: "2. APEX observes (inner loop)",
+    text: "Through the headset, APEX captures live video, hand and eye tracking, equipment status, and wafer status in real time.",
+  },
+  "analyze-detect": {
+    title: "3. Analyze and detect (inner loop)",
+    text: "APEX interprets the current step, checks for errors, characterizes the wafer, and monitors safety as the work unfolds.",
+  },
+  guide: {
+    title: "4. Provide real-time guidance (inner loop)",
+    text: "APEX delivers instructions, warnings, or parameter updates directly in the operator's view.",
+  },
+  continue: {
+    title: "5. Continue fabrication (inner loop)",
+    text: "The researcher proceeds to the next step, and the cycle repeats for every step of the protocol.",
+  },
+  "analyze-results": {
+    title: "2. Analyze results and reason (outer loop)",
+    text: "After fabrication, APEX determines what worked, what failed, and why — using explicit constraint reasoning and full traceability.",
+  },
+  update: {
+    title: "3. Update protocol (outer loop)",
+    text: "APEX revises SOPs, parameters, or methods — for example proposing an alternative process — and the improved protocol feeds back into the next run.",
+  },
+};
+
+const figBoxes = document.querySelectorAll(".fig-box");
+const figTitle = document.getElementById("fig-detail-title");
+const figText = document.getElementById("fig-detail-text");
+
+figBoxes.forEach((box) => {
+  box.addEventListener("click", () => {
+    figBoxes.forEach((b) => b.classList.remove("active"));
+    box.classList.add("active");
+    const data = LOOP_STEPS[box.dataset.step];
+    if (data) {
+      figTitle.textContent = data.title;
+      figText.textContent = data.text;
+    }
+  });
+});
+
 const nodes = document.querySelectorAll(".wf-node");
 const titleEl = document.getElementById("wf-title");
 const textEl = document.getElementById("wf-text");
