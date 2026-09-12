@@ -17,11 +17,8 @@
     </a>
     <nav class="nav-links">
       <a href="#about">About</a>
-      <a href="#features">Features</a>
       <a href="#workflow">Workflow</a>
-      <a href="#results">Results</a>
-      <a href="#device">Case Study</a>
-      <a href="#team">Team</a>
+      <a href="#paper">Paper &amp; Team</a>
     </nav>
   </header>
 
@@ -35,16 +32,6 @@
         bringing real-time reasoning, guidance, and protocol co-development into the
         microelectromechanical systems (MEMS) cleanroom.
       </p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#about">Explore the System</a>
-        <a class="btn btn-ghost" href="#paper">Read the Paper</a>
-      </div>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num">+51%</span><span class="stat-label">step-tracking accuracy vs. state-of-the-art multimodal models</span></div>
-      <div class="stat"><span class="stat-num">+42%</span><span class="stat-label">real-time error detection accuracy vs. commercial models</span></div>
-      <div class="stat"><span class="stat-num">+113%</span><span class="stat-label">novice execution speed with APEX guidance</span></div>
-      <div class="stat"><span class="stat-num">8% → 100%</span><span class="stat-label">novice task completion rate</span></div>
     </div>
   </section>
 
@@ -57,64 +44,6 @@
       Wearable mixed-reality hardware streams experimental context to the AI and delivers
       in-situ guidance back to the operator.
     </p>
-    <div class="pillars">
-      <article class="pillar">
-        <h3>Perceive</h3>
-        <p>
-          State-of-the-art mixed-reality goggles capture 8K egocentric video with a 98°–110° field of
-          view at 32&nbsp;ms latency, plus hand tracking, eye gaze, and SLAM-based 3D maps of the
-          cleanroom — grounding every action in its physical context.
-        </p>
-      </article>
-      <article class="pillar">
-        <h3>Reason</h3>
-        <p>
-          A hierarchical multi-agent framework: fast, fine-tuned local vision-language models handle
-          safety monitoring and wafer characterization, while high-level Planning, Context,
-          Step-tracking, and Analysis agents interpret long, multi-step fabrications as they unfold.
-        </p>
-      </article>
-      <article class="pillar">
-        <h3>Collaborate</h3>
-        <p>
-          Real-time 3D overlays deliver stepwise guidance, error alerts, and safety warnings in the
-          operator's view. Protocols and devices co-evolve through two interacting loops: protocol
-          co-development and device co-fabrication.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ============ FEATURES ============ -->
-  <section class="section section-alt" id="features">
-    <h2>Six Core Features</h2>
-    <p class="section-lead">APEX runs as an observational collaborator in the cleanroom, combining six capabilities into a single closed loop.</p>
-    <div class="feature-grid">
-      <article class="feature-card">
-        <h3>Fabrication Step Tracking</h3>
-        <p>Aligns every mixed-reality frame to its standard operating procedure step using an evolving multimodal memory, tracking full procedures such as reactive-ion etching end to end.</p>
-      </article>
-      <article class="feature-card">
-        <h3>Fabrication Analysis &amp; Log</h3>
-        <p>Autonomously generates structured, timestamped experiment records — parameters, equipment readings, environmental snapshots — that users can query in natural language.</p>
-      </article>
-      <article class="feature-card">
-        <h3>Real-Time Error Correction</h3>
-        <p>Compares physical operations against the protocol to catch wrong parameters, premature steps, and early terminations, reaching 96% average accuracy across representative failure modes.</p>
-      </article>
-      <article class="feature-card">
-        <h3>Defect Characterization &amp; Traceback</h3>
-        <p>Interprets microscope images against CAD designs and fabrication history to identify wafer defects and trace them back to the exact step that caused them — with a &lt;1&nbsp;s quick-check mode for time-critical etching.</p>
-      </article>
-      <article class="feature-card">
-        <h3>Safety Monitoring</h3>
-        <p>A locally deployed, fine-tuned safety agent watches chemical handling continuously, issuing preventive warnings, danger alerts, and recovery plans within 2 seconds of an unsafe event.</p>
-      </article>
-      <article class="feature-card">
-        <h3>Protocol Co-Development</h3>
-        <p>Reasons over material compatibility, equipment availability, and literature to draft new fabrication protocols with humans — then revises them mid-fabrication as real observations arrive.</p>
-      </article>
-    </div>
   </section>
 
   <!-- ============ WORKFLOW (interactive placeholder) ============ -->
@@ -174,56 +103,13 @@
     </div>
   </section>
 
-  <!-- ============ RESULTS ============ -->
-  <section class="section section-alt" id="results">
-    <h2>Key Results</h2>
-    <div class="results-list">
-      <article class="result">
-        <h3>Understands the cleanroom better than general models</h3>
-        <p>APEX outperformed GPT-5-nano, GPT-4o, Gemini-2.5-flash, and Gemini-2.5-pro at recognizing fabrication tools (average +23%) and tracked multi-step procedures with 51% higher step-tracking accuracy.</p>
-      </article>
-      <article class="result">
-        <h3>Turns novices into experts in hours, not months</h3>
-        <p>APEX-assisted beginners completed reactive-ion etching at speeds statistically indistinguishable from experts — a 113% speedup over manual-guided novices — and task completion rose from 8% to 100%.</p>
-      </article>
-      <article class="result">
-        <h3>Catches errors before they ruin a wafer</h3>
-        <p>Real-time recognition and correction of parameter mistakes, premature chamber openings, and early terminations with 96% average accuracy — plus autonomous, queryable experiment documentation.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ============ CASE STUDY ============ -->
-  <section class="section" id="device">
-    <h2>Case Study: A Soft Neural Probe, Co-Developed with AI</h2>
-    <p class="section-lead">
-      Elastomers like SEBS match the mechanical softness of brain tissue but are notoriously
-      incompatible with conventional microfabrication. Working in its two closed loops, APEX
-      proposed a release–float–transfer encapsulation strategy, then revised it mid-fabrication
-      with a PDMS-assisted transfer when the free-standing film proved unreliable.
-    </p>
-    <div class="case-highlights">
-      <div class="case-item"><strong>Wafer-scale</strong> fabrication of few-micrometer-thick planar SEBS neural probes</div>
-      <div class="case-item"><strong>Single-unit resolution</strong> in vivo neural recordings, stable within one week</div>
-      <div class="case-item"><strong>2 measurements instead of 12</strong> to co-optimize spin-coating parameters</div>
-    </div>
-  </section>
-
-  <!-- ============ PAPER / TEAM ============ -->
+  <!-- ============ PAPER & TEAM ============ -->
   <section class="section section-alt" id="paper">
-    <h2>Paper</h2>
+    <h2>Paper &amp; Team</h2>
     <p class="section-lead">
       <em>Human–AI Co-Embodied Intelligence for MEMS Scientific Experimentation and Manufacturing.</em><br>
       Manuscript in preparation — link coming soon.
     </p>
-    <div class="paper-links">
-      <a class="btn btn-primary btn-disabled" aria-disabled="true">Preprint (soon)</a>
-      <a class="btn btn-ghost btn-disabled" aria-disabled="true">Code (soon)</a>
-    </div>
-  </section>
-
-  <section class="section" id="team">
-    <h2>Team</h2>
     <p class="section-lead">
       Xinyi Lin*, Yuyang Zhang*, Yuanhang Gan, Juntao Chen, Hao Shen, Camilla Meneghetti,
       Yichun He, Lijun Li, Ze Yuan, Shuang Wang, Chaohao Wang, Ian Van Hulle, Rui Zhang,
@@ -245,10 +131,8 @@
       </div>
       <nav class="footer-links">
         <a href="#about">About</a>
-        <a href="#features">Features</a>
         <a href="#workflow">Workflow</a>
-        <a href="#results">Results</a>
-        <a href="#team">Team</a>
+        <a href="#paper">Paper &amp; Team</a>
       </nav>
     </div>
     <p class="footer-copy">© 2026 APEX Project · Harvard University</p>
