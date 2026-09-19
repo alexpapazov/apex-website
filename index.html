@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
 
@@ -58,6 +58,33 @@
     </p>
 
     <h3 class="fig-title">Human–AI Co-Embodied Intelligence for MEMS Fabrication</h3>
+
+    <!-- Demo clips: set data-src to each video file (e.g. videos/outer-loop.mp4) when ready.
+         Hover plays a sped-up muted preview; click opens the full video. -->
+    <div class="fig-videos">
+      <figure class="fig-video" data-src="">
+        <div class="fig-video-frame">
+          <video class="fig-video-el" muted loop playsinline preload="metadata"></video>
+          <div class="fig-video-placeholder">
+            <span class="fig-video-icon">▶</span>
+            <span>Demo coming soon</span>
+          </div>
+        </div>
+        <figcaption>Protocol co-development in action</figcaption>
+      </figure>
+      <div></div>
+      <figure class="fig-video" data-src="">
+        <div class="fig-video-frame">
+          <video class="fig-video-el" muted loop playsinline preload="metadata"></video>
+          <div class="fig-video-placeholder">
+            <span class="fig-video-icon">▶</span>
+            <span>Demo coming soon</span>
+          </div>
+        </div>
+        <figcaption>Real-time co-fabrication in the cleanroom</figcaption>
+      </figure>
+    </div>
+
     <div class="fig-split">
       <svg class="fig-wires" aria-hidden="true"></svg>
 
@@ -201,6 +228,15 @@
     <p class="footer-copy">© 2026 APEX Project · Harvard University</p>
   </footer>
 
-  <script src="script.js?v=6"></script>
+  <!-- Full-size video lightbox -->
+  <div class="video-modal" id="video-modal" hidden>
+    <div class="video-modal-backdrop" data-close></div>
+    <div class="video-modal-dialog">
+      <button class="video-modal-close" type="button" aria-label="Close video" data-close>×</button>
+      <video id="video-modal-el" controls playsinline></video>
+    </div>
+  </div>
+
+  <script src="script.js?v=7"></script>
 </body>
 </html>

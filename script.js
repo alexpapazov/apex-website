@@ -78,6 +78,50 @@ figBoxes.forEach((box) => {
   });
 });
 
+// Demo video tiles: hover plays a sped-up muted preview, click opens the full video.
+const PREVIEW_SPEED = 3;
+const videoModal = document.getElementById("video-modal");
+const modalVideo = document.getElementById("video-modal-el");
+
+function openVideo(src) {
+  modalVideo.src = src;
+  modalVideo.playbackRate = 1;
+  videoModal.hidden = false;
+  document.body.style.overflow = "hidden";
+  modalVideo.play().catch(() => {});
+}
+
+function closeVideo() {
+  videoModal.hidden = true;
+  modalVideo.pause();
+  modalVideo.removeAttribute("src");
+  modalVideo.load();
+  document.body.style.overflow = "";
+}
+
+document.querySelectorAll(".fig-video").forEach((tile) => {
+  const src = tile.dataset.src;
+  if (!src) return;
+  const preview = tile.querySelector(".fig-video-el");
+  preview.src = src;
+
+  tile.addEventListener("mouseenter", () => {
+    preview.currentTime = 0;
+    preview.playbackRate = PREVIEW_SPEED;
+    preview.play().catch(() => {});
+  });
+  tile.addEventListener("mouseleave", () => {
+    preview.pause();
+    preview.currentTime = 0;
+  });
+  tile.addEventListener("click", () => openVideo(src));
+});
+
+videoModal.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("click", closeVideo));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !videoModal.hidden) closeVideo();
+});
+
 // Draw continuous connector arrows between the figure's boxes.
 const GREEN = "#2f9e50";
 const BLUE = "#2f74d0";
