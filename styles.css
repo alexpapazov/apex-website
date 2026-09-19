@@ -39,7 +39,11 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.015em; }
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.nav-brand { display: flex; align-items: baseline; gap: 0.6rem; text-decoration: none; }
+.nav-brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+
+.nav-logo-img { width: 34px; height: 34px; object-fit: contain; }
+
+.nav-tag { align-self: center; }
 
 .nav-logo {
   font-weight: 800;
