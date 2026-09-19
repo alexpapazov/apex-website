@@ -83,7 +83,7 @@ const GREEN = "#2f9e50";
 const BLUE = "#2f74d0";
 
 function drawWires() {
-  const outer = document.querySelector(".fig-outer");
+  const outer = document.querySelector(".fig-split");
   const svg = document.querySelector(".fig-wires");
   if (!outer || !svg) return;
 
@@ -102,30 +102,42 @@ function drawWires() {
     };
   };
 
+  const colOuter = R(".fig-col-outer");
+  const colInner = R(".fig-col-inner");
+  const bridge = R(".fig-bridge");
   const g = R('[data-step="generate"]');
-  const inner = R(".fig-inner");
+  const ar = R('[data-step="analyze-results"]');
+  const up = R('[data-step="update"]');
   const p = R('[data-step="perform"]');
   const ob = R('[data-step="observe"]');
   const ad = R('[data-step="analyze-detect"]');
   const gd = R('[data-step="guide"]');
   const ct = R('[data-step="continue"]');
-  const ar = R('[data-step="analyze-results"]');
-  const up = R('[data-step="update"]');
-  const railX = W - 26;
+  const railL = colOuter.l + 18;
+  const railR = colInner.r - 18;
+  const sideBySide = colInner.l > colOuter.r;
 
   const wires = [
-    // outer loop (blue)
-    [`M ${g.cx} ${g.b} V ${inner.t}`, BLUE],
-    [`M ${ar.cx} ${inner.b} V ${ar.t}`, BLUE],
-    [`M ${ar.r} ${ar.cy} H ${up.l}`, BLUE],
-    [`M ${up.r} ${up.cy} H ${railX} V ${g.cy} H ${g.r}`, BLUE],
-    // inner cycle (green), counterclockwise
-    [`M ${p.l} ${p.cy} H ${ob.cx} V ${ob.t}`, GREEN],
+    // outer loop (blue): top to bottom, then back up the left rail
+    [`M ${g.cx} ${g.b} V ${ar.t}`, BLUE],
+    [`M ${ar.cx} ${ar.b} V ${up.t}`, BLUE],
+    [`M ${up.l} ${up.cy} H ${railL} V ${g.cy} H ${g.l}`, BLUE],
+    // inner loop (green): top to bottom, then back up the right rail
+    [`M ${p.cx} ${p.b} V ${ob.t}`, GREEN],
     [`M ${ob.cx} ${ob.b} V ${ad.t}`, GREEN],
-    [`M ${ad.r} ${ad.cy} H ${gd.l}`, GREEN],
-    [`M ${gd.cx} ${gd.t} V ${ct.b}`, GREEN],
-    [`M ${ct.cx} ${ct.t} V ${p.cy} H ${p.r}`, GREEN],
+    [`M ${ad.cx} ${ad.b} V ${gd.t}`, GREEN],
+    [`M ${gd.cx} ${gd.b} V ${ct.t}`, GREEN],
+    [`M ${ct.r} ${ct.cy} H ${railR} V ${p.cy} H ${p.r}`, GREEN],
   ];
+  if (sideBySide) {
+    // bridge: protocol flows right, outcomes flow back left
+    wires.push([`M ${colOuter.r} ${bridge.cy - 22} H ${colInner.l}`, BLUE]);
+    wires.push([`M ${colInner.l} ${bridge.cy + 22} H ${colOuter.r}`, GREEN]);
+  } else {
+    // stacked (mobile): bridge runs vertically between the two panels
+    wires.push([`M ${bridge.cx - 40} ${colOuter.b} V ${colInner.t}`, BLUE]);
+    wires.push([`M ${bridge.cx + 40} ${colInner.t} V ${colOuter.b}`, GREEN]);
+  }
 
   const NS = "http://www.w3.org/2000/svg";
   svg.innerHTML = `

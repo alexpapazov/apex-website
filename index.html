@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -58,48 +58,48 @@
     </p>
 
     <h3 class="fig-title">Human–AI Co-Embodied Intelligence for MEMS Fabrication</h3>
-    <div class="fig-outer">
+    <div class="fig-split">
       <svg class="fig-wires" aria-hidden="true"></svg>
-      <p class="fig-outer-title">Outer Loop: Real-time Protocol Co-Development</p>
 
-      <div class="fig-row fig-row-center">
-        <button class="fig-box t-blue" type="button" data-step="generate">
-          <span class="fig-icon">📄</span>1. Generate / Update Protocol
-        </button>
-      </div>
-
-      <div class="fig-inner">
-        <p class="fig-inner-title">Inner Loop: Real-time MEMS Device Co-Fabrication</p>
-        <div class="fig-cycle">
-          <button class="fig-box t-green fig-span" type="button" data-step="perform">
-            <span class="fig-icon">🧑‍🔬</span>1. Researcher performs step
+      <div class="fig-col fig-col-outer">
+        <p class="fig-col-title">Outer Loop: Real-time Protocol Co-Development</p>
+        <div class="fig-stack">
+          <button class="fig-box t-blue" type="button" data-step="generate">
+            <span class="fig-icon">📄</span>1. Generate / Update Protocol
           </button>
-
-          <button class="fig-box t-blue" type="button" data-step="observe">
-            <span class="fig-icon">📷</span>2. APEX observes
+          <button class="fig-box t-blue" type="button" data-step="analyze-results">
+            <span class="fig-icon">📊</span>2. Analyze results and reason
           </button>
-          <div></div>
-          <button class="fig-box t-teal" type="button" data-step="continue">
-            <span class="fig-icon">🔄</span>5. Continue fabrication
-          </button>
-
-          <button class="fig-box t-purple" type="button" data-step="analyze-detect">
-            <span class="fig-icon">🧠</span>3. Analyze and detect
-          </button>
-          <div></div>
-          <button class="fig-box t-yellow" type="button" data-step="guide">
-            <span class="fig-icon">💬</span>4. Provide real-time guidance
+          <button class="fig-box t-blue" type="button" data-step="update">
+            <span class="fig-icon">📄</span>3. Update protocol
           </button>
         </div>
       </div>
 
-      <div class="fig-row fig-row-bottom">
-        <button class="fig-box t-blue" type="button" data-step="analyze-results">
-          <span class="fig-icon">📊</span>2. Analyze results and reason
-        </button>
-        <button class="fig-box t-blue" type="button" data-step="update">
-          <span class="fig-icon">📄</span>3. Update protocol
-        </button>
+      <div class="fig-bridge">
+        <p class="fig-bridge-label fig-bridge-top">New / updated protocol</p>
+        <p class="fig-bridge-label fig-bridge-bottom">Fabrication outcomes &amp; data</p>
+      </div>
+
+      <div class="fig-col fig-col-inner">
+        <p class="fig-col-title">Inner Loop: Real-time MEMS Device Co-Fabrication</p>
+        <div class="fig-stack">
+          <button class="fig-box t-green" type="button" data-step="perform">
+            <span class="fig-icon">🧑‍🔬</span>1. Researcher performs step
+          </button>
+          <button class="fig-box t-blue" type="button" data-step="observe">
+            <span class="fig-icon">📷</span>2. APEX observes
+          </button>
+          <button class="fig-box t-purple" type="button" data-step="analyze-detect">
+            <span class="fig-icon">🧠</span>3. Analyze and detect
+          </button>
+          <button class="fig-box t-yellow" type="button" data-step="guide">
+            <span class="fig-icon">💬</span>4. Provide real-time guidance
+          </button>
+          <button class="fig-box t-teal" type="button" data-step="continue">
+            <span class="fig-icon">🔄</span>5. Continue fabrication
+          </button>
+        </div>
       </div>
     </div>
 
@@ -201,6 +201,6 @@
     <p class="footer-copy">© 2026 APEX Project · Harvard University</p>
   </footer>
 
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>
