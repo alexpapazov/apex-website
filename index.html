@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
 
@@ -59,29 +59,33 @@
 
     <h3 class="fig-title">Human–AI Co-Embodied Intelligence for MEMS Fabrication</h3>
 
-    <!-- Demo clips: set data-src to each video file (e.g. videos/outer-loop.mp4) when ready.
-         Hover plays a sped-up muted preview; click opens the full video. -->
+    <!-- Demo clips: data-preview is a short pre-sped silent loop played on hover,
+         data-src is the full video opened in the lightbox on click. -->
     <div class="fig-videos">
-      <figure class="fig-video" data-src="">
+      <figure class="fig-video"
+              data-preview="videos/outer-preview.mp4"
+              data-src="videos/outer-full.mp4">
         <div class="fig-video-frame">
-          <video class="fig-video-el" muted loop playsinline preload="metadata"></video>
+          <video class="fig-video-el" muted loop playsinline preload="none"></video>
           <div class="fig-video-placeholder">
             <span class="fig-video-icon">▶</span>
             <span>Demo coming soon</span>
           </div>
         </div>
-        <figcaption>Protocol co-development in action</figcaption>
+        <figcaption>Root-cause traceback: from wafer defect back to the step that caused it</figcaption>
       </figure>
       <div></div>
-      <figure class="fig-video" data-src="">
+      <figure class="fig-video"
+              data-preview="videos/inner-preview.mp4"
+              data-src="videos/inner-full.mp4">
         <div class="fig-video-frame">
-          <video class="fig-video-el" muted loop playsinline preload="metadata"></video>
+          <video class="fig-video-el" muted loop playsinline preload="none"></video>
           <div class="fig-video-placeholder">
             <span class="fig-video-icon">▶</span>
             <span>Demo coming soon</span>
           </div>
         </div>
-        <figcaption>Real-time co-fabrication in the cleanroom</figcaption>
+        <figcaption>Real-time guidance through the MR interface during spin-coating</figcaption>
       </figure>
     </div>
 
@@ -237,6 +241,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>

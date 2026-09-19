@@ -78,8 +78,7 @@ figBoxes.forEach((box) => {
   });
 });
 
-// Demo video tiles: hover plays a sped-up muted preview, click opens the full video.
-const PREVIEW_SPEED = 3;
+// Demo video tiles: hover plays a short pre-sped silent loop, click opens the full video.
 const videoModal = document.getElementById("video-modal");
 const modalVideo = document.getElementById("video-modal-el");
 
@@ -103,11 +102,10 @@ document.querySelectorAll(".fig-video").forEach((tile) => {
   const src = tile.dataset.src;
   if (!src) return;
   const preview = tile.querySelector(".fig-video-el");
-  preview.src = src;
+  preview.src = tile.dataset.preview || src;
 
   tile.addEventListener("mouseenter", () => {
     preview.currentTime = 0;
-    preview.playbackRate = PREVIEW_SPEED;
     preview.play().catch(() => {});
   });
   tile.addEventListener("mouseleave", () => {
